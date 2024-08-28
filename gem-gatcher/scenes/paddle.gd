@@ -1,6 +1,6 @@
 extends Area2D
 
-const speed: float = 100.0
+const speed: float = 200.0
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("left"):
@@ -9,4 +9,4 @@ func _process(delta: float) -> void:
 		position.x += speed * delta
 
 func _on_gem_area_entered(area: Area2D) -> void:
-	print(area)
+	Util.remove_node(area)
