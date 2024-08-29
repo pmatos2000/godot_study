@@ -50,7 +50,6 @@ func game_over() -> void:
 	open_accept_dialog()
 
 
-
 func _on_paddle_area_entered(area: Area2D) -> void:
 	audio_stream_player_2d.position = area.position
 	audio_stream_player_2d.play()
