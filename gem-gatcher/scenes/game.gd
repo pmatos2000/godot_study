@@ -12,6 +12,7 @@ const GEN_POSITION_INIT_X_MAX: float = 1050.0
 @onready var timer: Timer = $Timer
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var accept_dialog: AcceptDialog = $CanvasLayer/AcceptDialog
 
 
 var score : int = 0
@@ -38,9 +39,16 @@ func play_dead() -> void:
 	audio_stream_player_2d.play()
 
 
+func open_accept_dialog() -> void:
+	accept_dialog.visible = true
+	accept_dialog.dialog_text = "Pontuação: %05d" % score
+
+
 func game_over() -> void:
 	stop_all()
 	play_dead()
+	open_accept_dialog()
+
 
 
 func _on_paddle_area_entered(area: Area2D) -> void:

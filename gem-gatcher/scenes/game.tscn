@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://baqelwm2d1l04"]
+[gd_scene load_steps=8 format=3 uid="uid://baqelwm2d1l04"]
 
 [ext_resource type="Texture2D" uid="uid://b1ngm38ybs60l" path="res://assets/GameBg.png" id="1_oasvu"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_y7doh"]
 [ext_resource type="PackedScene" uid="uid://c216d7c2axy2i" path="res://scenes/paddle.tscn" id="2_1alid"]
 [ext_resource type="PackedScene" uid="uid://d4db3nr3kng3o" path="res://scenes/gem.tscn" id="3_cs03i"]
+[ext_resource type="Script" path="res://scenes/accept_dialog.gd" id="5_75y0c"]
 [ext_resource type="AudioStream" uid="uid://mbeg3e86qsg5" path="res://assets/bgm_action_5.mp3" id="5_jeo67"]
 [ext_resource type="AudioStream" uid="uid://bfkuwhui2sbh5" path="res://assets/spell1_0.wav" id="6_v67ws"]
 
@@ -38,6 +39,14 @@ theme_override_constants/shadow_offset_y = 4
 theme_override_font_sizes/font_size = 48
 text = "00000"
 
+[node name="AcceptDialog" type="AcceptDialog" parent="CanvasLayer"]
+title = "Game over"
+position = Vector2i(495, 290)
+size = Vector2i(170, 100)
+exclusive = false
+ok_button_text = "Novo jogo"
+script = ExtResource("5_75y0c")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_jeo67")
 volume_db = -16.0
@@ -48,3 +57,5 @@ stream = ExtResource("6_v67ws")
 
 [connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="spawn_gen"]
+[connection signal="canceled" from="CanvasLayer/AcceptDialog" to="CanvasLayer/AcceptDialog" method="_on_accept_dialog_canceled"]
+[connection signal="confirmed" from="CanvasLayer/AcceptDialog" to="CanvasLayer/AcceptDialog" method="_on_accept_dialog_confirmed"]
