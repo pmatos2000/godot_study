@@ -8,7 +8,7 @@ const GEN_POSITION_INIT_Y: float = -50.0
 const GEN_POSITION_INIT_X_MIN: float = 70.0
 const GEN_POSITION_INIT_X_MAX: float = 1050.0
 
-@onready var label: Label = $Label
+@onready var label: Label = $CanvasLayer/Label
 @onready var timer: Timer = $Timer
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D

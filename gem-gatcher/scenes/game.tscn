@@ -23,7 +23,9 @@ position = Vector2(563, 600)
 wait_time = 2.0
 autostart = true
 
-[node name="Label" type="Label" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
 offset_left = 24.0
 offset_top = 12.0
 offset_right = 161.0
