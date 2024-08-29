@@ -2,13 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://bictqlkea7olv" path="res://assets/background/rocks_2.png" id="1_xl8a2"]
 [ext_resource type="PackedScene" uid="uid://cbreaps2x2ixg" path="res://scenes/plane/plane.tscn" id="2_t3ejk"]
-[ext_resource type="Script" path="res://scenes/plane/plane.gd" id="3_wcvko"]
+[ext_resource type="PackedScene" uid="uid://qnywcixbkmy3" path="res://scenes/barrier/barrier.tscn" id="4_5mjv0"]
 
 [node name="Game" type="Node2D"]
-position = Vector2(174, 342)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(299, 337)
 texture = ExtResource("1_xl8a2")
 
 [node name="Plane" parent="." instance=ExtResource("2_t3ejk")]
-script = ExtResource("3_wcvko")
+position = Vector2(80, 385)
+
+[node name="Barrier" parent="." instance=ExtResource("4_5mjv0")]
+position = Vector2(1, -40)
+
+[node name="Barrier2" parent="." instance=ExtResource("4_5mjv0")]
+position = Vector2(-1, 867)
