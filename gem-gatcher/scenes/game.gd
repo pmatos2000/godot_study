@@ -6,6 +6,11 @@ const GEN_POSITION_INIT_Y: float = -50.0
 const GEN_POSITION_INIT_X_MIN: float = 70.0
 const GEN_POSITION_INIT_X_MAX: float = 1050.0
 
+@onready var label: Label = $Label
+
+var score : int = 0
+
+
 func spawn_gen() -> void:
 	var new_gen: Gen = gen_scene.instantiate()
 	new_gen.on_gen_off_screen.connect(game_over)
@@ -15,3 +20,9 @@ func spawn_gen() -> void:
 
 func game_over() -> void:
 	print("game_over")
+
+
+func _on_paddle_area_entered(area: Area2D) -> void:
+	Util.remove_node(area)
+	score += 1
+	label.text = "%05d" % score
