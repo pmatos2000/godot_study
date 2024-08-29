@@ -7,3 +7,6 @@ Jogo para coletar diamantes que caem usando uma raquete, projeto adaptador do cu
 
 https://github.com/user-attachments/assets/db839ee3-75a4-4365-a4a1-05bd1a2ba9e9
 
+## Dowload
+
+O dowload dos executáveis podem ser feito pelo [drive](https://drive.google.com/drive/folders/1sgTGxibUeIMy7yguTCwmhvf90Uh-cakV?usp=sharing) 
