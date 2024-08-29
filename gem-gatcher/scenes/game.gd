@@ -7,6 +7,8 @@ const GEN_POSITION_INIT_X_MIN: float = 70.0
 const GEN_POSITION_INIT_X_MAX: float = 1050.0
 
 @onready var label: Label = $Label
+@onready var timer: Timer = $Timer
+
 
 var score : int = 0
 
@@ -18,8 +20,15 @@ func spawn_gen() -> void:
 	new_gen.position = Vector2(pos_init_x, GEN_POSITION_INIT_Y)
 	add_child(new_gen)
 
+
+func stop_all() -> void:
+	timer.stop()
+	for child in get_children():
+		child.set_process(false)
+
 func game_over() -> void:
-	print("game_over")
+	stop_all()
+
 
 
 func _on_paddle_area_entered(area: Area2D) -> void:
