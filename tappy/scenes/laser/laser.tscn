@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b48i85f2c05k6"]
+
+[ext_resource type="Texture2D" uid="uid://2hbdu7nuj15s" path="res://assets/pipes/laser2.png" id="1_67yl6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpco3"]
+size = Vector2(4, 285)
+
+[sub_resource type="Animation" id="Animation_onmnl"]
+resource_name = "flash"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hwyee"]
+_data = {
+"flash": SubResource("Animation_onmnl")
+}
+
+[node name="Laser" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 8)
+texture = ExtResource("1_67yl6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(99, -1.5)
+shape = SubResource("RectangleShape2D_kpco3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hwyee")
+}

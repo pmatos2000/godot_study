@@ -86,7 +86,7 @@ script = ExtResource("1_cadtf")
 sprite_frames = SubResource("SpriteFrames_38u4b")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.861212
+frame_progress = 0.980539
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_khccd")
