@@ -7,12 +7,12 @@ const _SPRINT_SPEED: float = 9.0
 @export_category("Objects")
 @export var _body: CharacterArmature = null
 @export var _spring_arm_offset: Node3D = null
-@export var _animation_player: AnimationPlayer = null;
+
 
 func _physics_process(_delta: float) -> void:
 	_move()
 	move_and_slide()
-	animate()
+	_body.animate(velocity, is_running())
 
 
 func _move() -> void:
@@ -36,22 +36,13 @@ func _move() -> void:
 		_body.apply_rotation(direction)
 	else:
 		velocity = velocity.move_toward(Vector3.ZERO, speed) 
-	
+
 
 func is_running() -> bool:
 	return Input.is_action_pressed("run")
+
 
 func _get_speed() -> float:
 	if is_running():
 		return _SPRINT_SPEED
 	return _NORMAL_SPEED
-	
-
-func animate() -> void:
-	if velocity:
-		if is_running():
-			_animation_player.play("Run")
-		else:
-			_animation_player.play("Walk")
-	else:
-		_animation_player.play("Idle")

@@ -19,13 +19,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		_clamp_limits_rotate()
 
 
-func _physics_process(delta: float) -> void:
-	var rotate : Vector2 = Input.get_vector(
+func _physics_process(_delta: float) -> void:
+	var new_rotate : Vector2 = Input.get_vector(
 		"rotate_cam_left", "rotate_cam_right",
 		"rotate_cam_down", "rotate_cam_up",
 	)
-	rotate_y(rotate.x * _JOYSTICK_SENSIBILITY)
-	spring_arm.rotate_x(rotate.y * _JOYSTICK_SENSIBILITY)
+	rotate_y(new_rotate.x * _JOYSTICK_SENSIBILITY)
+	spring_arm.rotate_x(new_rotate.y * _JOYSTICK_SENSIBILITY)
 	_clamp_limits_rotate()
 
 

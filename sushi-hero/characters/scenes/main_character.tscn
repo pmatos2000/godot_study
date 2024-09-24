@@ -10259,11 +10259,10 @@ _data = {
 "Yes": SubResource("Animation_ta3fy")
 }
 
-[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("_body", "_spring_arm_offset", "_animation_player")]
+[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("_body", "_spring_arm_offset")]
 script = ExtResource("1_t7pwu")
 _body = NodePath("Panda/CharacterArmature")
 _spring_arm_offset = NodePath("SpringArmOffset")
-_animation_player = NodePath("Panda/AnimationPlayer")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
@@ -10272,8 +10271,9 @@ shape = SubResource("CapsuleShape3D_yhyur")
 [node name="Panda" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="CharacterArmature" type="Node3D" parent="Panda"]
+[node name="CharacterArmature" type="Node3D" parent="Panda" node_paths=PackedStringArray("_animation_player")]
 script = ExtResource("2_a7uuv")
+_animation_player = NodePath("../AnimationPlayer")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Panda/CharacterArmature"]
 bones/0/name = "Root"
