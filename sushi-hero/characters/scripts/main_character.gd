@@ -8,12 +8,12 @@ const _SPRINT_SPEED: float = 9.0
 @export var _body: Node3D = null
 @export var _spring_arm_offset: Node3D = null
 
-func _physics_process(delta: float) -> void:
-	_move(delta)
+func _physics_process(_delta: float) -> void:
+	_move()
 	move_and_slide()
 
 
-func _move(delta: float) -> void:
+func _move() -> void:
 	var input_direction : Vector2 = Input.get_vector(
 		"move_left", "move_right",
 		"move_foeward","move_backward"
