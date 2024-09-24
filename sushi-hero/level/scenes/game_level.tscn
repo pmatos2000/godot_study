@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgr4yflqseyxp"]
+[gd_scene load_steps=6 format=3 uid="uid://dgr4yflqseyxp"]
 
 [ext_resource type="PackedScene" uid="uid://bos15jrxylusl" path="res://characters/scenes/main_character.tscn" id="1_rkw1m"]
+[ext_resource type="PackedScene" uid="uid://bx5flkemk3uyn" path="res://grid_maps/scenes/floor_grid_map.tscn" id="2_78cer"]
+[ext_resource type="PackedScene" uid="uid://ckmvh50yxgqv6" path="res://grid_maps/scenes/walls_grid_map.tscn" id="3_ikaug"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ros6u"]
 size = Vector2(1000, 1000)
@@ -17,3 +19,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0755143, 0, -0.30441)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0126865, -0.287518, 0.00028038)
 mesh = SubResource("PlaneMesh_ros6u")
 surface_material_override/0 = SubResource("StandardMaterial3D_owyg4")
+
+[node name="LevelGridMap" type="Node3D" parent="."]
+
+[node name="FloorGridMap" parent="LevelGridMap" instance=ExtResource("2_78cer")]
+
+[node name="Walls" type="Node3D" parent="LevelGridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.092, 0)
+
+[node name="WallsGridMap" parent="LevelGridMap/Walls" instance=ExtResource("3_ikaug")]
+
+[node name="WallsGridMap2" parent="LevelGridMap/Walls" instance=ExtResource("3_ikaug")]
+
+[node name="WallsGridMap3" parent="LevelGridMap/Walls" instance=ExtResource("3_ikaug")]
+
+[node name="WallsGridMap4" parent="LevelGridMap/Walls" instance=ExtResource("3_ikaug")]
