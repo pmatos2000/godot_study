@@ -1,5 +1,5 @@
 extends Node3D
-class_name Body
+class_name CharacterArmature
 
 const _LERP_VELOCITY: float = 0.15
 

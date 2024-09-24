@@ -5,12 +5,14 @@ const _NORMAL_SPEED: float = 5.0
 const _SPRINT_SPEED: float = 9.0
 
 @export_category("Objects")
-@export var _body: Body = null
+@export var _body: CharacterArmature = null
 @export var _spring_arm_offset: Node3D = null
+@export var _animation_player: AnimationPlayer = null;
 
 func _physics_process(_delta: float) -> void:
 	_move()
 	move_and_slide()
+	animate()
 
 
 func _move() -> void:
@@ -29,7 +31,7 @@ func _move() -> void:
 	
 	var speed : float = _get_speed();
 	
-	if direction != Vector3.ZERO:
+	if direction:
 		velocity = speed * direction
 		_body.apply_rotation(direction)
 	else:
@@ -43,3 +45,13 @@ func _get_speed() -> float:
 	if is_running():
 		return _SPRINT_SPEED
 	return _NORMAL_SPEED
+	
+
+func animate() -> void:
+	if velocity:
+		if is_running():
+			_animation_player.play("Run")
+		else:
+			_animation_player.play("Walk")
+	else:
+		_animation_player.play("Idle")
