@@ -27,16 +27,19 @@ func _move() -> void:
 	
 	direction = direction.rotated(Vector3.UP, _spring_arm_offset.rotation.y)
 	
+	var speed : float = _get_speed();
+	
 	if direction != Vector3.ZERO:
-		velocity = get_speed() * direction
+		velocity = speed * direction
 		_body.apply_rotation(direction)
 	else:
-		velocity = velocity.move_toward(Vector3.ZERO, get_speed()) 
-	
-	
+		velocity = velocity.move_toward(Vector3.ZERO, speed) 
 	
 
-func get_speed() -> float:
-	if Input.is_action_pressed("run"):
+func is_running() -> bool:
+	return Input.is_action_pressed("run")
+
+func _get_speed() -> float:
+	if is_running():
 		return _SPRINT_SPEED
 	return _NORMAL_SPEED

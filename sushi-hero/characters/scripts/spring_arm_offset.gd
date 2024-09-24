@@ -8,7 +8,6 @@ const _ROTATION_Y_MIN = -PI/4
 const _ROTATION_Y_MAX = PI/24
 
 
-
 @export_category("Objects")
 @export var spring_arm: SpringArm3D = null
 
