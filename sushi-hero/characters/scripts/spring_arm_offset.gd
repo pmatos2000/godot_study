@@ -4,8 +4,8 @@ class_name SpringArmOffset
 const _MOUSE_SENSIBILITY : float  = 0.003
 const _JOYSTICK_SENSIBILITY : float = 0.03
 
-const _ROTATION_Y_MIN = -PI/4
-const _ROTATION_Y_MAX = PI/24
+const _ROTATION_SPRING_X_MIN = -PI/4
+const _ROTATION_SPRING_X_MAX = PI/24
 
 
 @export_category("Objects")
@@ -32,6 +32,6 @@ func _physics_process(_delta: float) -> void:
 func _clamp_limits_rotate() -> void:
 	spring_arm.rotation.x = clamp(
 		spring_arm.rotation.x,
-		_ROTATION_Y_MIN,
-		_ROTATION_Y_MAX
+		_ROTATION_SPRING_X_MIN,
+		_ROTATION_SPRING_X_MAX
 	)
