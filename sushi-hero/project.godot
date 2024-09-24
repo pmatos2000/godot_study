@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Sushi Hero"
+run/main_scene="res://characters/scenes/main_character.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
