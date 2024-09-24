@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgr4yflqseyxp"]
+[gd_scene load_steps=7 format=3 uid="uid://dgr4yflqseyxp"]
 
 [ext_resource type="PackedScene" uid="uid://bos15jrxylusl" path="res://characters/scenes/main_character.tscn" id="1_rkw1m"]
 [ext_resource type="PackedScene" uid="uid://bx5flkemk3uyn" path="res://grid_maps/scenes/floor_grid_map.tscn" id="2_78cer"]
 [ext_resource type="PackedScene" uid="uid://ckmvh50yxgqv6" path="res://grid_maps/scenes/walls_grid_map.tscn" id="3_ikaug"]
+[ext_resource type="PackedScene" uid="uid://cjdtjgu42soig" path="res://grid_maps/scenes/counters_grid_map.tscn" id="4_vqu06"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ros6u"]
 size = Vector2(1000, 1000)
@@ -34,3 +35,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.092, 0)
 [node name="WallsGridMap3" parent="LevelGridMap/Walls" instance=ExtResource("3_ikaug")]
 
 [node name="WallsGridMap4" parent="LevelGridMap/Walls" instance=ExtResource("3_ikaug")]
+
+[node name="CountersGridMap" parent="LevelGridMap" instance=ExtResource("4_vqu06")]
