@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgr4yflqseyxp"]
+[gd_scene load_steps=11 format=3 uid="uid://dgr4yflqseyxp"]
 
 [ext_resource type="PackedScene" uid="uid://bos15jrxylusl" path="res://characters/scenes/main_character.tscn" id="1_rkw1m"]
 [ext_resource type="PackedScene" uid="uid://bx5flkemk3uyn" path="res://grid_maps/scenes/floor_grid_map.tscn" id="2_78cer"]
 [ext_resource type="PackedScene" uid="uid://ckmvh50yxgqv6" path="res://grid_maps/scenes/walls_grid_map.tscn" id="3_ikaug"]
 [ext_resource type="PackedScene" uid="uid://cjdtjgu42soig" path="res://grid_maps/scenes/counters_grid_map.tscn" id="4_vqu06"]
+[ext_resource type="Material" uid="uid://btntdpqkc31xa" path="res://shaders/materials/sky_shader.tres" id="5_7n41b"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ros6u"]
 size = Vector2(1000, 1000)
@@ -14,6 +15,13 @@ albedo_color = Color(0.117647, 0.117647, 0.117647, 1)
 [sub_resource type="NavigationMesh" id="NavigationMesh_kbwx6"]
 vertices = PackedVector3Array(9.5, 0.592, -25.5, 9.5, 0.592, 25.5, 44.5, 0.592, 25.5, 44.5, 0.592, -25.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="Sky" id="Sky_jfri4"]
+sky_material = ExtResource("5_7n41b")
+
+[sub_resource type="Environment" id="Environment_0va7s"]
+background_mode = 2
+sky = SubResource("Sky_jfri4")
 
 [node name="GameLevel" type="Node3D"]
 
@@ -116,3 +124,6 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 5.89127, 0)
 shadow_enabled = true
 shadow_blur = 0.5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0va7s")
