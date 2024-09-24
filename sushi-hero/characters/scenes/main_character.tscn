@@ -10598,8 +10598,9 @@ libraries = {
 "": SubResource("AnimationLibrary_obisx")
 }
 
-[node name="SpringArmOffset" type="Node3D" parent="."]
+[node name="SpringArmOffset" type="Node3D" parent="." node_paths=PackedStringArray("spring_arm")]
 script = ExtResource("3_6p5cd")
+spring_arm = NodePath("SpringArm")
 
 [node name="SpringArm" type="SpringArm3D" parent="SpringArmOffset"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
