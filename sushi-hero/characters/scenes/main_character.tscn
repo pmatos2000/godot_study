@@ -1,7 +1,8 @@
-[gd_scene load_steps=42 format=4 uid="uid://bos15jrxylusl"]
+[gd_scene load_steps=43 format=4 uid="uid://bos15jrxylusl"]
 
 [ext_resource type="Texture2D" uid="uid://cemamdq6ns7o7" path="res://furniture/walls/models/characters/with_knife_and_pan/panda_Sushi_Atlas.png" id="1_pqiyy"]
 [ext_resource type="Script" path="res://characters/scripts/main_character.gd" id="1_t7pwu"]
+[ext_resource type="Script" path="res://characters/scripts/body_character.gd" id="2_a7uuv"]
 [ext_resource type="Script" path="res://characters/scripts/spring_arm_offset.gd" id="3_6p5cd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yhyur"]
@@ -10271,6 +10272,7 @@ shape = SubResource("CapsuleShape3D_yhyur")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Body" type="Node3D" parent="Panda"]
+script = ExtResource("2_a7uuv")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Panda/Body"]
 bones/0/name = "Root"

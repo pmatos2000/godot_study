@@ -5,7 +5,7 @@ const _NORMAL_SPEED: float = 5.0
 const _SPRINT_SPEED: float = 9.0
 
 @export_category("Objects")
-@export var _body: Node3D = null
+@export var _body: Body = null
 @export var _spring_arm_offset: Node3D = null
 
 func _physics_process(_delta: float) -> void:
@@ -25,7 +25,15 @@ func _move() -> void:
 		input_direction.y
 	).normalized()
 	
-	velocity = get_speed() * direction 
+	direction = direction.rotated(Vector3.UP, _spring_arm_offset.rotation.y)
+	
+	if direction != Vector3.ZERO:
+		velocity = get_speed() * direction
+		_body.apply_rotation(direction)
+	else:
+		velocity = velocity.move_toward(Vector3.ZERO, get_speed()) 
+	
+	
 	
 
 func get_speed() -> float:
