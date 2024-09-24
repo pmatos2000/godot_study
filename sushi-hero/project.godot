@@ -19,3 +19,12 @@ config/icon="res://icon.svg"
 globals="*res://level/scripts/globals.gd"
 ingredients="*res://level/scripts/ingredients.gd"
 recipes="*res://level/scripts/recipes.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[rendering]
+
+lights_and_shadows/directional_shadow/size=16384
