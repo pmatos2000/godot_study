@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://4bmqrayctxw6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_adiqw"]
-sky_top_color = Color(0.000531231, 0.0397559, 0.290052, 1)
+sky_top_color = Color(0.000145487, 0.0108889, 0.146161, 1)
 sky_horizon_color = Color(0.215259, 0.000303705, 0.318858, 1)
 
 [sub_resource type="Sky" id="Sky_jfri4"]

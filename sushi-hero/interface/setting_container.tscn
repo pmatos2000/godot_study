@@ -77,6 +77,7 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Container/GraphicsContainer/FullScreen/HBoxContainer"]
 layout_mode = 2
+button_pressed = true
 
 [node name="Vsync" type="HBoxContainer" parent="Container/GraphicsContainer"]
 layout_mode = 2
@@ -278,4 +279,10 @@ layout_mode = 2
 [connection signal="toggled" from="Container/GraphicsContainer/FullScreen/HBoxContainer/CheckBox" to="." method="_on_check_box_full_screen"]
 [connection signal="item_selected" from="Container/GraphicsContainer/Vsync/OptionButton" to="." method="_on_option_button_vsync_item_selected"]
 [connection signal="item_selected" from="Container/GraphicsContainer/ScreenSpaceAA2/OptionButton" to="." method="_on_option_button_screen_space_item_selected"]
+[connection signal="item_selected" from="Container/GraphicsContainer/MSAA3D/OptionButton" to="." method="_on_option_button_msaa3d_item_selected"]
+[connection signal="toggled" from="Container/GraphicsContainer/TAA/HBoxContainer/CheckBox" to="." method="_on_check_box_taa"]
+[connection signal="toggled" from="Container/GraphicsContainer/Reflections/HBoxContainer/CheckBox" to="." method="_on_check_box_reflections"]
+[connection signal="toggled" from="Container/GraphicsContainer/AmbientOcclusion/HBoxContainer/CheckBox" to="." method="_on_check_box_ambient_occlusion"]
+[connection signal="toggled" from="Container/GraphicsContainer/IndirectLighting/HBoxContainer/CheckBox" to="." method="_on_check_box_indirect_lighting"]
+[connection signal="toggled" from="Container/GraphicsContainer/GlobalIllumination/HBoxContainer/CheckBox" to="." method="_on_check_box_global_illumination"]
 [connection signal="toggled" from="Container/MiscellaneousContainer/DisplayFps/HBoxContainer/CheckBox" to="." method="_on_check_box_display_fps"]
