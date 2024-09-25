@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3n0vnh1dgonj"]
+
+[ext_resource type="PackedScene" uid="uid://d4l7rc7vh5i7o" path="res://interface/setting_container.tscn" id="1_a8mfu"]
+[ext_resource type="PackedScene" uid="uid://4i7gu36offmb" path="res://interface/fps_container.tscn" id="2_luwcj"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="SettingContainer" parent="." instance=ExtResource("1_a8mfu")]
+
+[node name="FpsContainer" parent="." instance=ExtResource("2_luwcj")]
