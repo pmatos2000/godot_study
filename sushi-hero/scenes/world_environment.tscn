@@ -10,10 +10,8 @@ sky_material = SubResource("ProceduralSkyMaterial_adiqw")
 [sub_resource type="Environment" id="Environment_0va7s"]
 background_mode = 2
 sky = SubResource("Sky_jfri4")
-ssao_enabled = true
 ssao_radius = 4.0
 ssil_intensity = 1.56
-sdfgi_enabled = true
 sdfgi_y_scale = 0
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
