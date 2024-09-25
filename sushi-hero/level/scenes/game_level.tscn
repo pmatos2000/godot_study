@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dnlbflk21kgwb" path="res://light/scenes/lamp.tscn" id="6_y32yk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ros6u"]
-size = Vector2(4000, 4000)
+size = Vector2(10000, 10000)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owyg4"]
 albedo_color = Color(0, 0, 0, 1)
@@ -132,18 +132,13 @@ shadow_enabled = true
 shadow_blur = 0.5
 
 [node name="Fog1" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.409, 0, 0)
-size = Vector3(160, 0.5, 160)
-material = SubResource("ShaderMaterial_w5h5o")
-
-[node name="Fog3" type="FogVolume" parent="."]
-transform = Transform3D(0.402324, 0, 0, 0, 1, 0, 0, 0, 1, -53.0882, 0, -2.52539)
-size = Vector3(145.895, 0.5, 165.051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.66, 0, 0)
+size = Vector3(160, 4, 160)
 material = SubResource("ShaderMaterial_w5h5o")
 
 [node name="Fog2" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.429, 0, 0)
-size = Vector3(160, 0.5, 160)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.094, 0, 0)
+size = Vector3(160, 4, 160)
 material = SubResource("ShaderMaterial_w5h5o")
 
 [node name="Lamps" type="Node3D" parent="."]

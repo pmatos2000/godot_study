@@ -277,4 +277,5 @@ layout_mode = 2
 
 [connection signal="toggled" from="Container/GraphicsContainer/FullScreen/HBoxContainer/CheckBox" to="." method="_on_check_box_full_screen"]
 [connection signal="item_selected" from="Container/GraphicsContainer/Vsync/OptionButton" to="." method="_on_option_button_vsync_item_selected"]
+[connection signal="item_selected" from="Container/GraphicsContainer/ScreenSpaceAA2/OptionButton" to="." method="_on_option_button_screen_space_item_selected"]
 [connection signal="toggled" from="Container/MiscellaneousContainer/DisplayFps/HBoxContainer/CheckBox" to="." method="_on_check_box_display_fps"]
