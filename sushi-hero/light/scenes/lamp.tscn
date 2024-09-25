@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnlbflk21kgwb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8fpvt"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 4.0
+emission_operator = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_7k1xq"]
+material = SubResource("StandardMaterial3D_8fpvt")
+
+[node name="Lamp" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.23171, 8.53955, -8.01291)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.76503, 0)
+light_energy = 2.0
+light_indirect_energy = 10.0
+shadow_enabled = true
+shadow_opacity = 0.8
+shadow_blur = 2.0
+omni_range = 9.94005
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_7k1xq")

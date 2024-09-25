@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgr4yflqseyxp"]
+[gd_scene load_steps=14 format=3 uid="uid://dgr4yflqseyxp"]
 
 [ext_resource type="PackedScene" uid="uid://bos15jrxylusl" path="res://characters/scenes/main_character.tscn" id="1_rkw1m"]
 [ext_resource type="PackedScene" uid="uid://bx5flkemk3uyn" path="res://grid_maps/scenes/floor_grid_map.tscn" id="2_78cer"]
 [ext_resource type="PackedScene" uid="uid://ckmvh50yxgqv6" path="res://grid_maps/scenes/walls_grid_map.tscn" id="3_ikaug"]
 [ext_resource type="PackedScene" uid="uid://cjdtjgu42soig" path="res://grid_maps/scenes/counters_grid_map.tscn" id="4_vqu06"]
+[ext_resource type="Shader" path="res://shaders/shaders/fog.gdshader" id="5_6dx3i"]
+[ext_resource type="PackedScene" uid="uid://dnlbflk21kgwb" path="res://light/scenes/lamp.tscn" id="6_y32yk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ros6u"]
 size = Vector2(1000, 1000)
@@ -16,6 +18,8 @@ vertices = PackedVector3Array(9.5, 0.592, -25.5, 9.5, 0.592, 25.5, 44.5, 0.592, 
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_adiqw"]
+sky_top_color = Color(0.000531231, 0.0397559, 0.290052, 1)
+sky_horizon_color = Color(0.215259, 0.000303705, 0.318858, 1)
 
 [sub_resource type="Sky" id="Sky_jfri4"]
 sky_material = SubResource("ProceduralSkyMaterial_adiqw")
@@ -23,7 +27,7 @@ sky_material = SubResource("ProceduralSkyMaterial_adiqw")
 [sub_resource type="Environment" id="Environment_0va7s"]
 background_mode = 2
 sky = SubResource("Sky_jfri4")
-tonemap_mode = 3
+ssao_radius = 14.29
 ssao_intensity = 1.0
 ssao_power = 2.0
 ssil_intensity = 1.56
@@ -32,6 +36,18 @@ sdfgi_use_occlusion = true
 sdfgi_y_scale = 0
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5h5o"]
+shader = ExtResource("5_6dx3i")
+shader_parameter/base_density = 1.0
+shader_parameter/base_color = null
+shader_parameter/fade_out_height = 2.0
+shader_parameter/fade_out_distance = 1.5
+shader_parameter/noise_amounts = Vector3(0.4, 0.35, 0.25)
+shader_parameter/noise_scales = Vector3(1, 2, 4)
+shader_parameter/noise_velocity1 = Vector3(0.5, 0, 0)
+shader_parameter/noise_velocity2 = Vector3(1, 0, -1)
+shader_parameter/noise_velocity3 = Vector3(0, 0.6, 0.3)
 
 [node name="GameLevel" type="Node3D"]
 
@@ -137,3 +153,109 @@ shadow_blur = 0.5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0va7s")
+
+[node name="Fog1" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.409, 0, 0)
+size = Vector3(160, 0.5, 160)
+material = SubResource("ShaderMaterial_w5h5o")
+
+[node name="Fog3" type="FogVolume" parent="."]
+transform = Transform3D(0.402324, 0, 0, 0, 1, 0, 0, 0, 1, -53.0882, 0, -2.52539)
+size = Vector3(145.895, 0.5, 165.051)
+material = SubResource("ShaderMaterial_w5h5o")
+
+[node name="Fog2" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.429, 0, 0)
+size = Vector3(160, 0.5, 160)
+material = SubResource("ShaderMaterial_w5h5o")
+
+[node name="Lamps" type="Node3D" parent="."]
+
+[node name="Lamp" parent="Lamps" instance=ExtResource("6_y32yk")]
+
+[node name="Lamp2" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.99976, 8.53955, -8.01291)
+
+[node name="Lamp3" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.10093, 8.54, 0)
+
+[node name="Lamp4" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14718, 8.54, 7.38892)
+
+[node name="Lamp5" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.05241, 8.54, 7.38892)
+
+[node name="Lamp6" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.09, 8.54, 21.9759)
+
+[node name="Lamp7" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9952, 8.54, 21.9759)
+
+[node name="Lamp8" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9692, 8.54, 21.9759)
+
+[node name="Lamp9" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.766, 8.54, 21.9759)
+
+[node name="Lamp10" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.09, 8.54, 7.94598)
+
+[node name="Lamp11" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9952, 8.54, 7.94598)
+
+[node name="Lamp12" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9692, 8.54, 7.94598)
+
+[node name="Lamp13" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.766, 8.54, 7.94598)
+
+[node name="Lamp14" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.09, 8.54, -5.02386)
+
+[node name="Lamp15" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9952, 8.54, -5.02386)
+
+[node name="Lamp16" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9692, 8.54, -5.02386)
+
+[node name="Lamp17" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.766, 8.54, -5.02386)
+
+[node name="Lamp18" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.09, 8.54, -17.89)
+
+[node name="Lamp19" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9952, 8.54, -17.89)
+
+[node name="Lamp20" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9692, 8.54, -17.89)
+
+[node name="Lamp21" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.766, 8.54, -17.89)
+
+[node name="Lamp22" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3724, 8.54, -11.1752)
+
+[node name="Lamp23" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3464, 8.54, -11.1752)
+
+[node name="Lamp24" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1433, 8.54, -11.1752)
+
+[node name="Lamp25" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2819, 8.54, 0.524559)
+
+[node name="Lamp26" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2559, 8.54, 0.524559)
+
+[node name="Lamp27" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0527, 8.54, 0.524559)
+
+[node name="Lamp28" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2819, 8.54, 15.3919)
+
+[node name="Lamp29" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2559, 8.54, 15.3919)
+
+[node name="Lamp30" parent="Lamps" instance=ExtResource("6_y32yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0527, 8.54, 15.3919)
