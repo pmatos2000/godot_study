@@ -74,7 +74,6 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Container/GraphicsContainer/FullScreen/HBoxContainer"]
 layout_mode = 2
-metadata/KeySetting = "sdtgi_enabled"
 
 [node name="Vsync" type="HBoxContainer" parent="Container/GraphicsContainer"]
 layout_mode = 2
@@ -87,7 +86,7 @@ layout_mode = 2
 text = "Modo V-Sync"
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="Container/GraphicsContainer/Vsync" groups=["options_button"]]
+[node name="OptionButton" type="OptionButton" parent="Container/GraphicsContainer/Vsync"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 selected = 0
@@ -99,7 +98,6 @@ popup/item_2/text = "Ativado"
 popup/item_2/id = 2
 popup/item_3/text = "Adaptativo"
 popup/item_3/id = 3
-metadata/KeySetting = "vsync/vsync_mode"
 
 [node name="ScreenSpaceAA2" type="HBoxContainer" parent="Container/GraphicsContainer"]
 layout_mode = 2
@@ -112,7 +110,7 @@ layout_mode = 2
 text = "Screen Space AA"
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="Container/GraphicsContainer/ScreenSpaceAA2" groups=["options_button"]]
+[node name="OptionButton" type="OptionButton" parent="Container/GraphicsContainer/ScreenSpaceAA2"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 selected = 0
@@ -120,7 +118,6 @@ item_count = 2
 popup/item_0/text = "Desativado (Mais rápido) "
 popup/item_1/text = "FXAA (Rápido)"
 popup/item_1/id = 1
-metadata/KeySetting = "screen_space_aa"
 
 [node name="MSAA3D" type="HBoxContainer" parent="Container/GraphicsContainer"]
 layout_mode = 2
@@ -134,7 +131,7 @@ text = "MSAA 3D
 "
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="Container/GraphicsContainer/MSAA3D" groups=["options_button"]]
+[node name="OptionButton" type="OptionButton" parent="Container/GraphicsContainer/MSAA3D"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 selected = 0
@@ -146,7 +143,6 @@ popup/item_2/text = "4X (Lento)"
 popup/item_2/id = 2
 popup/item_3/text = "8X (Mais lento)"
 popup/item_3/id = 3
-metadata/KeySetting = "msaa_3d"
 
 [node name="TAA" type="HBoxContainer" parent="Container/GraphicsContainer"]
 layout_mode = 2
@@ -166,7 +162,6 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Container/GraphicsContainer/TAA/HBoxContainer"]
 layout_mode = 2
-metadata/KeySetting = "taa"
 
 [node name="Reflections" type="HBoxContainer" parent="Container/GraphicsContainer"]
 layout_mode = 2
@@ -185,7 +180,6 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Container/GraphicsContainer/Reflections/HBoxContainer"]
 layout_mode = 2
-metadata/KeySetting = "ssr_enabled"
 
 [node name="AmbientOcclusion" type="HBoxContainer" parent="Container/GraphicsContainer"]
 layout_mode = 2
@@ -223,7 +217,6 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Container/GraphicsContainer/IndirectLighting/HBoxContainer"]
 layout_mode = 2
-metadata/KeySetting = "ssil_enabled"
 
 [node name="GlobalIllumination" type="HBoxContainer" parent="Container/GraphicsContainer"]
 layout_mode = 2
@@ -242,7 +235,6 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Container/GraphicsContainer/GlobalIllumination/HBoxContainer"]
 layout_mode = 2
-metadata/KeySetting = "sdtgi_enabled"
 
 [node name="MiscellaneousDelimiter" type="HBoxContainer" parent="Container"]
 layout_mode = 2
@@ -281,4 +273,3 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Container/MiscellaneousContainer/DisplayFps/HBoxContainer"]
 layout_mode = 2
-metadata/KeySetting = "display_fps"

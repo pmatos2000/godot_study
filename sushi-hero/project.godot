@@ -21,6 +21,7 @@ globals="*res://level/scripts/globals.gd"
 ingredients="*res://level/scripts/ingredients.gd"
 recipes="*res://level/scripts/recipes.gd"
 Mouse="*res://scripts/mouse.gd"
+GlobalWorldEnvironment="*res://scenes/world_environment.tscn"
 
 [debug]
 
