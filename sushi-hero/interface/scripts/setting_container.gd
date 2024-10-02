@@ -53,4 +53,4 @@ func _on_check_box_indirect_lighting(toggled_on: bool) -> void:
 
 
 func _on_check_box_global_illumination(toggled_on: bool) -> void:
-	GlobalWorldEnvironment.environment.sdfgi_enabled = toggled_on # Replace with function body.
+	GlobalWorldEnvironment.environment.sdfgi_enabled = toggled_on 

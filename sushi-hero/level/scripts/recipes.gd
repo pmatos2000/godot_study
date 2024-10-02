@@ -17,7 +17,7 @@ class_name Recipes
 #eel          -> $12
 #crab sticks  -> $12
 
-var character_ref = null
+var character_ref: Variant = null
 
 var recipes_dict: Dictionary = {
 	"chukaman": {

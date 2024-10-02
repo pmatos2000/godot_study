@@ -21,9 +21,12 @@ config/icon="res://icon.svg"
 globals="*res://level/scripts/globals.gd"
 ingredients="*res://level/scripts/ingredients.gd"
 recipes="*res://level/scripts/recipes.gd"
-Mouse="*res://scripts/mouse.gd"
 GlobalWorldEnvironment="*res://scenes/world_environment.tscn"
 Ui="*res://interface/ui.tscn"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
 
 [display]
 
