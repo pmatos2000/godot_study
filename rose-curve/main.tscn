@@ -8,10 +8,11 @@
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(742, 323)
 script = ExtResource("1_ubtba")
-n = 2
-velocidade_angular = null
+r = 300.0
+d = 9
+multiplicador_velocidade = null
 cena_elemento = ExtResource("2_f6xh1")
-quantidade = 2
+quantidade = 3
 quantiade_segmento = 400
 
 [node name="UI" type="Control" parent="."]

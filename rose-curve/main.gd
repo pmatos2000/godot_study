@@ -5,7 +5,8 @@ extends Node2D
 @export_range(100, 2000, 100) var r: float = 200
 @export_range(1, 9) var n: int = 1
 @export_range(1, 9) var d: int = 1
-@export var velocidade_angular: float = 1
+@export var multiplicador_velocidade: float = 0.25
+
 
 @export_group("Parâmetros Elementos")
 @export var cena_elemento: PackedScene = null
@@ -19,8 +20,8 @@ const NOME_META_TEMPO: StringName = "TEMPO"
 const NOME_GRUPO_ELEMENTO: StringName = "ELEMENTO"
 const NOME_GRUPO_LINHAS: StringName = "LINHAS"
 
-var k: float = 0 # Frequencia
-var periodo: float = 0
+var k: float = 0.0 # Frequencia
+var tempo_maximo: float = 0.0
 
 func _ready() -> void:
 	criar_filhos()
@@ -30,15 +31,18 @@ func _process(delta: float) -> void:
 	atualizar_elementos(delta)
 
 func obter_posicao(tempo: float) -> Vector2:
-	var angulo = velocidade_angular * tempo
+	var angulo = multiplicador_velocidade * 2 * PI * tempo / n
 	var x = r * cos(k * angulo) * cos(angulo)
 	var y = r * cos(k * angulo) * sin(angulo)
 	return Vector2(x, y)
 
 
 func criar_filhos() -> void:
+	var _mdc: int = mdc(n, d)
+	n = n / _mdc
+	d = d / _mdc
 	k =  float(n) / d
-	periodo = 1 / k
+	tempo_maximo = n * d / multiplicador_velocidade
 	criar_elementos()
 	criar_linhas()
 
@@ -53,10 +57,9 @@ func criar_linhas():
 		linhas.add_to_group(NOME_GRUPO_LINHAS)
 		linhas.width = 1
 		linhas.z_index = -1
-		print(periodo)
-		var delta_tempo: float = periodo/quantiade_segmento 
-		for tempo in Vector3(0, periodo + delta_tempo, delta_tempo):
-			var posicao = obter_posicao(2 * PI * k * tempo)
+		var delta_tempo: float = tempo_maximo / quantiade_segmento 
+		for tempo in Vector3(0, tempo_maximo + delta_tempo, delta_tempo):
+			var posicao = obter_posicao(tempo)
 			linhas.add_point(posicao)
 		
 		add_child(linhas)
@@ -70,7 +73,7 @@ func criar_elementos() -> void:
 			
 	for i in quantidade:
 		var node: Node2D = cena_elemento.instantiate()
-		var tempo: float =  1.0 / quantidade  
+		var tempo: float =  i * tempo_maximo / quantidade 
 		node.set_meta(NOME_META_TEMPO, tempo)
 		node.position = obter_posicao(tempo)
 		node.add_to_group(NOME_GRUPO_ELEMENTO)
@@ -85,3 +88,8 @@ func atualizar_elementos(delta: float) -> void:
 		tempo += delta
 		node.set_meta(NOME_META_TEMPO, tempo)
 		node.position = obter_posicao(tempo)
+
+func mdc(x: int, y: int) -> int:
+	if y == 0:
+		return x
+	return mdc(y, x % y)
