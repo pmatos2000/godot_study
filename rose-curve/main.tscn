@@ -10,7 +10,6 @@ position = Vector2(742, 323)
 script = ExtResource("1_ubtba")
 r = 200.0
 cena_elemento = ExtResource("2_f6xh1")
-quantidade = 4
 quantiade_segmento = 400
 
 [node name="UI" type="Control" parent="."]

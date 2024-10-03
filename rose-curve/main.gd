@@ -10,7 +10,7 @@ extends Node2D
 
 @export_group("Parâmetros Elementos")
 @export var cena_elemento: PackedScene = null
-@export_range(1, 100) var quantidade: int = 1
+@export_range(1, 100) var quantidade: int = 4
 
 @export_group("Parâmetros desenho")
 @export var desenhar: bool = true
@@ -47,7 +47,7 @@ func criar_filhos() -> void:
 	@warning_ignore("integer_division")
 	D = d / _mdc
 	k =  float(N) / D 
-	tempo_maximo = n * d / multiplicador_velocidade
+	tempo_maximo = N * D / multiplicador_velocidade
 	if N % 2 == 1 and D % 2 == 1:
 		tempo_maximo /= 2
 	criar_elementos()
@@ -119,5 +119,5 @@ func _on_d_spin_box_value_changed(valor: float) -> void:
 
 
 func _on_t_spin_box_value_changed(valor: float) -> void:
-	d = int(valor)
+	quantidade = int(valor)
 	criar_filhos()
