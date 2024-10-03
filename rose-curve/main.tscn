@@ -1,6 +1,16 @@
-[gd_scene format=3 uid="uid://doxhg7lpcyao5"]
+[gd_scene load_steps=3 format=3 uid="uid://doxhg7lpcyao5"]
 
-[node name="Main" type="Node2D"]
+[ext_resource type="Script" path="res://main.gd" id="1_ubtba"]
+[ext_resource type="PackedScene" uid="uid://c5oo7pfk4fvmq" path="res://icon.tscn" id="2_f6xh1"]
+
+[node name="Main" type="Node"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(742, 323)
+script = ExtResource("1_ubtba")
+cena_elemento = ExtResource("2_f6xh1")
+quantidade = 4
+quantiade_segmento = 400
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
