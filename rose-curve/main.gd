@@ -5,6 +5,7 @@ extends Node2D
 @export_range(100, 2000, 100) var r: float = 200
 @export_range(1, 9) var n: int = 1
 @export_range(1, 9) var d: int = 1
+@export var velocidade_angular: float = 1
 
 @export_group("Parâmetros Elementos")
 @export var cena_elemento: PackedScene = null
@@ -14,7 +15,7 @@ extends Node2D
 @export var desenhar: bool = true
 @export var quantiade_segmento: int = 100
 
-const NOME_META_ANGULO: StringName = "angulo"
+const NOME_META_TEMPO: StringName = "TEMPO"
 const NOME_GRUPO_ELEMENTO: StringName = "ELEMENTO"
 const NOME_GRUPO_LINHAS: StringName = "LINHAS"
 
@@ -29,7 +30,7 @@ func _process(delta: float) -> void:
 	atualizar_elementos(delta)
 
 func obter_posicao(tempo: float) -> Vector2:
-	var angulo = tempo
+	var angulo = velocidade_angular * tempo
 	var x = r * cos(k * angulo) * cos(angulo)
 	var y = r * cos(k * angulo) * sin(angulo)
 	return Vector2(x, y)
@@ -69,9 +70,9 @@ func criar_elementos() -> void:
 			
 	for i in quantidade:
 		var node: Node2D = cena_elemento.instantiate()
-		var angulo: float =  2 * i * PI/ quantidade 
-		node.set_meta(NOME_META_ANGULO, angulo)
-		node.position = obter_posicao(angulo)
+		var tempo: float =  1.0 / quantidade  
+		node.set_meta(NOME_META_TEMPO, tempo)
+		node.position = obter_posicao(tempo)
 		node.add_to_group(NOME_GRUPO_ELEMENTO)
 		add_child(node)
 
@@ -80,7 +81,7 @@ func atualizar_elementos(delta: float) -> void:
 		func (node: Node): return node.is_in_group(NOME_GRUPO_ELEMENTO))
 	
 	for node in nodes:
-		var angulo: float = node.get_meta(NOME_META_ANGULO, 0.0)
-		angulo = angulo + delta
-		node.set_meta(NOME_META_ANGULO, angulo)
-		node.position = obter_posicao(angulo)
+		var tempo: float = node.get_meta(NOME_META_TEMPO, 0.0)
+		tempo += delta
+		node.set_meta(NOME_META_TEMPO, tempo)
+		node.position = obter_posicao(tempo)
