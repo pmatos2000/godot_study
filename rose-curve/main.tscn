@@ -50,23 +50,6 @@ text = "Configurações
 "
 horizontal_alignment = 1
 
-[node name="RContainer" type="HBoxContainer" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer/RContainer"]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-text = "R"
-
-[node name="RSpinBox" type="SpinBox" parent="UI/ColorRect/MarginContainer/VBoxContainer/RContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 200.0
-max_value = 500.0
-step = 50.0
-value = 200.0
-alignment = 2
-
 [node name="NContainer" type="HBoxContainer" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -98,13 +81,36 @@ min_value = 1.0
 value = 1.0
 alignment = 2
 
+[node name="K" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "K = N/D =  ????"
+
+[node name="RContainer" type="HBoxContainer" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer/RContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Raio
+"
+
+[node name="RSpinBox" type="SpinBox" parent="UI/ColorRect/MarginContainer/VBoxContainer/RContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 200.0
+max_value = 500.0
+step = 50.0
+value = 200.0
+alignment = 2
+
 [node name="T" type="HBoxContainer" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer/T"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-text = "T"
+text = "Abelhas
+"
 
 [node name="TSpinBox" type="SpinBox" parent="UI/ColorRect/MarginContainer/VBoxContainer/T"]
 layout_mode = 2
@@ -113,7 +119,7 @@ min_value = 1.0
 value = 4.0
 alignment = 2
 
-[connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/RContainer/RSpinBox" to="Node2D" method="_on_r_spin_box_value_changed"]
 [connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/NContainer/NSpinBox" to="Node2D" method="_on_n_spin_box_value_changed"]
 [connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/DContainer/DSpinBox" to="Node2D" method="_on_d_spin_box_value_changed"]
+[connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/RContainer/RSpinBox" to="Node2D" method="_on_r_spin_box_value_changed"]
 [connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/T/TSpinBox" to="Node2D" method="_on_t_spin_box_value_changed"]

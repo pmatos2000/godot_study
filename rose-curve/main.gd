@@ -25,6 +25,9 @@ var tempo_maximo: float = 0.0
 var N: int = 0
 var D: int = 0
 
+@onready var k_label: Label = $"../UI/ColorRect/MarginContainer/VBoxContainer/K"
+
+
 func _ready() -> void:
 	criar_filhos()
 
@@ -46,7 +49,8 @@ func criar_filhos() -> void:
 	N = n / _mdc
 	@warning_ignore("integer_division")
 	D = d / _mdc
-	k =  float(N) / D 
+	k =  float(N) / D
+	k_label.text = "K = N/D = %f" % k
 	tempo_maximo = N * D / multiplicador_velocidade
 	if N % 2 == 1 and D % 2 == 1:
 		tempo_maximo /= 2
