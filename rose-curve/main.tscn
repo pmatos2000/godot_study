@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://doxhg7lpcyao5"]
+
+[node name="Main" type="Node2D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 360.0
+offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.230083, 0.000469949, 0.369288, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Configurações
+"
+horizontal_alignment = 1
+
+[node name="RContainer" type="HBoxContainer" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer/RContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "R"
+
+[node name="RSpinBox" type="SpinBox" parent="UI/ColorRect/MarginContainer/VBoxContainer/RContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 100.0
+max_value = 1200.0
+step = 100.0
+value = 500.0
+alignment = 2
+
+[node name="NContainer" type="HBoxContainer" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer/NContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "N
+"
+
+[node name="NSpinBox" type="SpinBox" parent="UI/ColorRect/MarginContainer/VBoxContainer/NContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+value = 1.0
+alignment = 2
+
+[node name="DContainer" type="HBoxContainer" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer/DContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "D"
+
+[node name="DSpinBox" type="SpinBox" parent="UI/ColorRect/MarginContainer/VBoxContainer/DContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+value = 1.0
+alignment = 2
+
+[node name="T" type="HBoxContainer" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer/T"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "T"
+
+[node name="TSpinBox" type="SpinBox" parent="UI/ColorRect/MarginContainer/VBoxContainer/T"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+value = 1.0
+alignment = 2
