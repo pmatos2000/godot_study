@@ -10,7 +10,6 @@ position = Vector2(742, 323)
 script = ExtResource("1_ubtba")
 r = 200.0
 cena_elemento = ExtResource("2_f6xh1")
-quantiade_segmento = 400
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -54,7 +53,7 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer/NContainer"]
-custom_minimum_size = Vector2(64, 0)
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 text = "N
 "
@@ -70,7 +69,7 @@ alignment = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer/DContainer"]
-custom_minimum_size = Vector2(64, 0)
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 text = "D"
 
@@ -89,7 +88,7 @@ text = "K = N/D =  ????"
 layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer/RContainer"]
-custom_minimum_size = Vector2(64, 0)
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 text = "Raio
 "
@@ -107,7 +106,7 @@ alignment = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer/T"]
-custom_minimum_size = Vector2(64, 0)
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 text = "Abelhas
 "
@@ -116,10 +115,28 @@ text = "Abelhas
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
+max_value = 1000.0
 value = 4.0
+alignment = 2
+
+[node name="Segmentos" type="HBoxContainer" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer/Segmentos"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "Segmentos"
+
+[node name="SegmentosSpinBox" type="SpinBox" parent="UI/ColorRect/MarginContainer/VBoxContainer/Segmentos"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1000.0
+step = 10.0
+value = 200.0
 alignment = 2
 
 [connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/NContainer/NSpinBox" to="Node2D" method="_on_n_spin_box_value_changed"]
 [connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/DContainer/DSpinBox" to="Node2D" method="_on_d_spin_box_value_changed"]
 [connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/RContainer/RSpinBox" to="Node2D" method="_on_r_spin_box_value_changed"]
 [connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/T/TSpinBox" to="Node2D" method="_on_t_spin_box_value_changed"]
+[connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/Segmentos/SegmentosSpinBox" to="Node2D" method="_on_segmentos_spin_box_value_changed"]

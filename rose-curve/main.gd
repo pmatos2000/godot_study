@@ -14,7 +14,7 @@ extends Node2D
 
 @export_group("Parâmetros desenho")
 @export var desenhar: bool = true
-@export var quantiade_segmento: int = 100
+@export var quantiade_segmento: int = 200
 
 const NOME_META_TEMPO: StringName = "TEMPO"
 const NOME_GRUPO_ELEMENTO: StringName = "ELEMENTO"
@@ -69,11 +69,11 @@ func criar_linhas() -> void:
 		linhas.width = 2
 		linhas.z_index = -1
 		linhas.default_color = Color("#ff2e66")
-		var delta_tempo: float = tempo_maximo / quantiade_segmento 
-		for tempo in Vector3(0, tempo_maximo + delta_tempo, delta_tempo):
-			var posicao: Vector2 = obter_posicao(tempo)
-			linhas.add_point(posicao)
-		
+		if quantiade_segmento:
+			var delta_tempo: float = tempo_maximo / quantiade_segmento 
+			for tempo in Vector3(0, tempo_maximo + delta_tempo, delta_tempo):
+				var posicao: Vector2 = obter_posicao(tempo)
+				linhas.add_point(posicao)
 		add_child(linhas)
 
 
@@ -128,4 +128,9 @@ func _on_d_spin_box_value_changed(valor: float) -> void:
 
 func _on_t_spin_box_value_changed(valor: float) -> void:
 	quantidade = int(valor)
+	criar_filhos()
+
+
+func _on_segmentos_spin_box_value_changed(valor: float) -> void:
+	quantiade_segmento = int(valor)
 	criar_filhos()
