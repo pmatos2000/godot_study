@@ -2,7 +2,7 @@
 extends Node2D
 
 @export_group("Parâmetros Rosa polar ")
-@export_range(100, 2000, 100) var r: float = 200
+@export_range(100, 500, 50) var r: float = 300
 @export_range(1, 9) var n: int = 1
 @export_range(1, 9) var d: int = 1
 @export var multiplicador_velocidade: float = 0.25
@@ -28,7 +28,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	atualizar_elementos(delta)
+	if not Engine.is_editor_hint():
+		atualizar_elementos(delta)
 
 func obter_posicao(tempo: float) -> Vector2:
 	var angulo = multiplicador_velocidade * 2 * PI * tempo / n
@@ -59,8 +60,9 @@ func criar_linhas():
 	if desenhar:
 		var linhas: Line2D = Line2D.new()
 		linhas.add_to_group(NOME_GRUPO_LINHAS)
-		linhas.width = 1
+		linhas.width = 2
 		linhas.z_index = -1
+		linhas.default_color = Color("#ff2e66")
 		var delta_tempo: float = tempo_maximo / quantiade_segmento 
 		for tempo in Vector3(0, tempo_maximo + delta_tempo, delta_tempo):
 			var posicao = obter_posicao(tempo)
@@ -97,3 +99,23 @@ func mdc(x: int, y: int) -> int:
 	if y == 0:
 		return x
 	return mdc(y, x % y)
+
+
+func _on_r_spin_box_value_changed(valor: float) -> void:
+	r = valor
+	criar_filhos()
+
+
+func _on_n_spin_box_value_changed(valor: float) -> void:
+	n = int(valor)
+	criar_filhos()
+
+
+func _on_d_spin_box_value_changed(valor: float) -> void:
+	d = int(valor)
+	criar_filhos()
+
+
+func _on_t_spin_box_value_changed(valor: float) -> void:
+	d = int(valor)
+	criar_filhos()

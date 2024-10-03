@@ -8,11 +8,9 @@
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(742, 323)
 script = ExtResource("1_ubtba")
-n = 7
-d = 8
-multiplicador_velocidade = null
+r = 200.0
 cena_elemento = ExtResource("2_f6xh1")
-quantidade = 20
+quantidade = 4
 quantiade_segmento = 400
 
 [node name="UI" type="Control" parent="."]
@@ -28,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.230083, 0.000469949, 0.369288, 1)
+color = Color(1, 0.181381, 0.399612, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/ColorRect"]
 layout_mode = 1
@@ -44,11 +42,11 @@ theme_override_constants/margin_bottom = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/ColorRect/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 16
 
 [node name="Label" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 24
 text = "Configurações
 "
 horizontal_alignment = 1
@@ -64,10 +62,10 @@ text = "R"
 [node name="RSpinBox" type="SpinBox" parent="UI/ColorRect/MarginContainer/VBoxContainer/RContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = 100.0
-max_value = 1200.0
-step = 100.0
-value = 500.0
+min_value = 200.0
+max_value = 500.0
+step = 50.0
+value = 200.0
 alignment = 2
 
 [node name="NContainer" type="HBoxContainer" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
@@ -113,5 +111,10 @@ text = "T"
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
-value = 1.0
+value = 4.0
 alignment = 2
+
+[connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/RContainer/RSpinBox" to="Node2D" method="_on_r_spin_box_value_changed"]
+[connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/NContainer/NSpinBox" to="Node2D" method="_on_n_spin_box_value_changed"]
+[connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/DContainer/DSpinBox" to="Node2D" method="_on_d_spin_box_value_changed"]
+[connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/T/TSpinBox" to="Node2D" method="_on_t_spin_box_value_changed"]
