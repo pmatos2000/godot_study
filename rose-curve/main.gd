@@ -88,14 +88,18 @@ func criar_elementos() -> void:
 		add_child(node)
 
 func atualizar_elementos(delta: float) -> void:
-	var nodes = get_children().filter(
+	var nodes: Array[Node] = get_children().filter(
 		func (node: Node): return node.is_in_group(NOME_GRUPO_ELEMENTO))
 	
 	for node in nodes:
-		var tempo: float = node.get_meta(NOME_META_TEMPO, 0.0)
-		tempo += delta
-		node.set_meta(NOME_META_TEMPO, tempo)
-		node.position = obter_posicao(tempo)
+		if node is Node2D:
+			var tempo: float = node.get_meta(NOME_META_TEMPO, 0.0)
+			tempo += delta
+			node.set_meta(NOME_META_TEMPO, tempo)
+			var posicao_antiga: Vector2 = node.position
+			node.position = obter_posicao(tempo)
+			var delta_posicao = posicao_antiga - node.position
+			node.rotation = atan2(delta_posicao.y, delta_posicao.x) - PI/2
 
 func mdc(x: int, y: int) -> int:
 	if y == 0:
