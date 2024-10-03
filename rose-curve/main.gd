@@ -39,7 +39,9 @@ func obter_posicao(tempo: float) -> Vector2:
 
 func criar_filhos() -> void:
 	var _mdc: int = mdc(n, d)
+	@warning_ignore("integer_division")
 	n = n / _mdc
+	@warning_ignore("integer_division")
 	d = d / _mdc
 	k =  float(n) / d
 	tempo_maximo = n * d / multiplicador_velocidade
@@ -78,7 +80,6 @@ func criar_elementos() -> void:
 		var tempo: float =  i * tempo_maximo / quantidade 
 		node.set_meta(NOME_META_TEMPO, tempo)
 		node.position = obter_posicao(tempo)
-		print("tempo {0}  pos {1}".format([tempo, str(node.position)]))
 		node.add_to_group(NOME_GRUPO_ELEMENTO)
 		add_child(node)
 
