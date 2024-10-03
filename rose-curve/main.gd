@@ -43,6 +43,8 @@ func criar_filhos() -> void:
 	d = d / _mdc
 	k =  float(n) / d
 	tempo_maximo = n * d / multiplicador_velocidade
+	if n % 2 == 1 and d % 2 == 1:
+		tempo_maximo /= 2
 	criar_elementos()
 	criar_linhas()
 
@@ -76,6 +78,7 @@ func criar_elementos() -> void:
 		var tempo: float =  i * tempo_maximo / quantidade 
 		node.set_meta(NOME_META_TEMPO, tempo)
 		node.position = obter_posicao(tempo)
+		print("tempo {0}  pos {1}".format([tempo, str(node.position)]))
 		node.add_to_group(NOME_GRUPO_ELEMENTO)
 		add_child(node)
 
