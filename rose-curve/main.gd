@@ -34,9 +34,9 @@ func _process(delta: float) -> void:
 		atualizar_elementos(delta)
 
 func obter_posicao(tempo: float) -> Vector2:
-	var angulo = multiplicador_velocidade * 2 * PI * tempo / N
-	var x = r * cos(k * angulo) * cos(angulo)
-	var y = r * cos(k * angulo) * sin(angulo)
+	var angulo: float = multiplicador_velocidade * 2 * PI * tempo / N
+	var x: float = r * cos(k * angulo) * cos(angulo)
+	var y: float = r * cos(k * angulo) * sin(angulo)
 	return Vector2(x, y)
 
 
@@ -53,9 +53,9 @@ func criar_filhos() -> void:
 	criar_elementos()
 	criar_linhas()
 
-func criar_linhas():
-	var nodes = get_children().filter(
-		func (node: Node): return node.is_in_group(NOME_GRUPO_LINHAS))
+func criar_linhas() -> void:
+	var nodes: Array[Node] = get_children().filter(
+		func (node: Node) -> bool: return node.is_in_group(NOME_GRUPO_LINHAS))
 	if nodes.size() == 1:
 		nodes[0].queue_free()
 	
@@ -67,14 +67,14 @@ func criar_linhas():
 		linhas.default_color = Color("#ff2e66")
 		var delta_tempo: float = tempo_maximo / quantiade_segmento 
 		for tempo in Vector3(0, tempo_maximo + delta_tempo, delta_tempo):
-			var posicao = obter_posicao(tempo)
+			var posicao: Vector2 = obter_posicao(tempo)
 			linhas.add_point(posicao)
 		
 		add_child(linhas)
 
 
 func criar_elementos() -> void:
-	var nodes = get_children()
+	var nodes: Array[Node] = get_children()
 	for node in nodes:
 		if node.is_in_group(NOME_GRUPO_ELEMENTO):
 			node.queue_free()
@@ -89,7 +89,7 @@ func criar_elementos() -> void:
 
 func atualizar_elementos(delta: float) -> void:
 	var nodes: Array[Node] = get_children().filter(
-		func (node: Node): return node.is_in_group(NOME_GRUPO_ELEMENTO))
+		func (node: Node) -> bool: return node.is_in_group(NOME_GRUPO_ELEMENTO))
 	
 	for node in nodes:
 		if node is Node2D:
@@ -98,7 +98,7 @@ func atualizar_elementos(delta: float) -> void:
 			node.set_meta(NOME_META_TEMPO, tempo)
 			var posicao_antiga: Vector2 = node.position
 			node.position = obter_posicao(tempo)
-			var delta_posicao = posicao_antiga - node.position
+			var delta_posicao: Vector2 = posicao_antiga - node.position
 			node.rotation = atan2(delta_posicao.y, delta_posicao.x) - PI/2
 
 func mdc(x: int, y: int) -> int:
