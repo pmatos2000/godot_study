@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://doxhg7lpcyao5"]
+[gd_scene load_steps=4 format=3 uid="uid://doxhg7lpcyao5"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ubtba"]
 [ext_resource type="PackedScene" uid="uid://c5oo7pfk4fvmq" path="res://icon.tscn" id="2_f6xh1"]
+[ext_resource type="Texture2D" uid="uid://xm6ht7v1xa8c" path="res://IDM-2021-poster-challenge-45.jpg" id="3_imvv6"]
 
 [node name="Main" type="Node"]
 
@@ -134,6 +135,12 @@ max_value = 1000.0
 step = 10.0
 value = 200.0
 alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_imvv6")
+expand_mode = 4
+stretch_mode = 5
 
 [connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/NContainer/NSpinBox" to="Node2D" method="_on_n_spin_box_value_changed"]
 [connection signal="value_changed" from="UI/ColorRect/MarginContainer/VBoxContainer/DContainer/DSpinBox" to="Node2D" method="_on_d_spin_box_value_changed"]
