@@ -22,6 +22,8 @@ const NOME_GRUPO_LINHAS: StringName = "LINHAS"
 
 var k: float = 0.0 # Frequencia
 var tempo_maximo: float = 0.0
+var N: int = 0
+var D: int = 0
 
 func _ready() -> void:
 	criar_filhos()
@@ -32,7 +34,7 @@ func _process(delta: float) -> void:
 		atualizar_elementos(delta)
 
 func obter_posicao(tempo: float) -> Vector2:
-	var angulo = multiplicador_velocidade * 2 * PI * tempo / n
+	var angulo = multiplicador_velocidade * 2 * PI * tempo / N
 	var x = r * cos(k * angulo) * cos(angulo)
 	var y = r * cos(k * angulo) * sin(angulo)
 	return Vector2(x, y)
@@ -41,12 +43,12 @@ func obter_posicao(tempo: float) -> Vector2:
 func criar_filhos() -> void:
 	var _mdc: int = mdc(n, d)
 	@warning_ignore("integer_division")
-	n = n / _mdc
+	N = n / _mdc
 	@warning_ignore("integer_division")
-	d = d / _mdc
-	k =  float(n) / d
+	D = d / _mdc
+	k =  float(N) / D 
 	tempo_maximo = n * d / multiplicador_velocidade
-	if n % 2 == 1 and d % 2 == 1:
+	if N % 2 == 1 and D % 2 == 1:
 		tempo_maximo /= 2
 	criar_elementos()
 	criar_linhas()
