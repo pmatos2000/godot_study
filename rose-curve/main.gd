@@ -14,7 +14,7 @@ extends Node2D
 
 @export_group("Parâmetros desenho")
 @export var desenhar: bool = true
-@export var quantiade_segmento: int = 200
+@export var quantiade_segmento: int = 500
 
 const NOME_META_TEMPO: StringName = "TEMPO"
 const NOME_GRUPO_ELEMENTO: StringName = "ELEMENTO"

@@ -133,7 +133,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1000.0
 step = 10.0
-value = 200.0
+value = 500.0
 alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
