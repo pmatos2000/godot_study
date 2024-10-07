@@ -83,7 +83,7 @@ alignment = 2
 
 [node name="K" type="Label" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "K = N/D =  ????"
+text = "K = N/D = 1.000000"
 
 [node name="RContainer" type="HBoxContainer" parent="UI/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
