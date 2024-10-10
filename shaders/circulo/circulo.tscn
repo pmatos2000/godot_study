@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhtoeo4jjimr6"]
+
+[ext_resource type="Shader" uid="uid://xa6vf8ubth3m" path="res://circulo/circulo_shader.tres" id="1_xrhf3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bilm3"]
+shader = ExtResource("1_xrhf3")
+shader_parameter/tamanho_raio = 0.25
+shader_parameter/Cor = Color(0.5, 0, 1, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_bilm3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 87.0
+offset_top = 68.0
+offset_right = 599.0
+offset_bottom = 580.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
