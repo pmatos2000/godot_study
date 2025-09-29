@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Sushi Hero"
 run/main_scene="res://level/scenes/game_level.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
@@ -36,6 +36,10 @@ window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/vsync/vsync_mode=0
+
+[dotnet]
+
+project/assembly_name="Sushi Hero"
 
 [input]
 

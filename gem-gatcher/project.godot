@@ -12,12 +12,16 @@ config_version=5
 
 config/name="Gem Gatcher"
 run/main_scene="res://scenes/game.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
 window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="Gem Gatcher"
 
 [input]
 
